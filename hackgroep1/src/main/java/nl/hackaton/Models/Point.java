@@ -37,7 +37,9 @@ public class Point{
         Geometry geometry = Geometry.ParseJSON(jsonObject.getAsJsonObject("geometry"));
         JsonObject properties = jsonObject.getAsJsonObject("properties");
         long locationCode = properties.getAsJsonPrimitive("locationCode").getAsLong();
-        String locationColor = properties.getAsJsonPrimitive("locationColor").getAsString();
+        String locationColor = null;
+        if(properties.has("locationColor"))
+            locationColor = properties.getAsJsonPrimitive("locationColor").getAsString();
         String name = properties.getAsJsonPrimitive("name").getAsString();
 
         ArrayList<PointMeasurement> measurements = PointMeasurement.parseJSON(properties.getAsJsonArray("measurements"));
@@ -46,5 +48,9 @@ public class Point{
         String windDirection = null;
 
         return new Point(geometry, locationCode, locationColor, measurements, name, unitCode, windDirection);
+    }
+
+    public static ArrayList<Point> filterPoints(ArrayList<Point> points) {
+        return points;
     }
 }
