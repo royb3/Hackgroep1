@@ -43,6 +43,12 @@
             <version>4.9</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.ibm.messaging</groupId>
+            <artifactId>watson-iot</artifactId>
+            <version>0.2.6</version>
+        </dependency>
     </dependencies>
 
     <build>

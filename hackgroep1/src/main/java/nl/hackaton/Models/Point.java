@@ -53,4 +53,13 @@ public class Point{
     public static ArrayList<Point> filterPoints(ArrayList<Point> points) {
         return points;
     }
+
+    public double sumMeasurements() {
+        double sum = 0;
+        for(PointMeasurement measurement : measurements) {
+            sum += (double)measurement.getLatestValue() / (double)measurements.size();
+        }
+        return(sum);
+
+    }
 }
